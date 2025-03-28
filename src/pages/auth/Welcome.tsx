@@ -17,7 +17,7 @@ const Welcome = () => {
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#1F41BB]">
       <div className="w-32 h-32">
-        <img src="src/assets/logo.png" alt="Logo" className="w-full h-full object-contain" />
+        <img src="/assets/logo.png" alt="Logo" className="w-full h-full object-contain" />
       </div>
     </div>
   );

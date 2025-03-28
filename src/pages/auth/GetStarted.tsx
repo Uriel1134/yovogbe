@@ -27,7 +27,7 @@ const GetStarted = () => {
         {/* Illustration */}
         <div className="w-full max-w-md">
           <img 
-            src="src/assets/illustration.png" 
+            src="/assets/illustration.png" 
             alt="Person thinking with headphones" 
             className="w-full h-auto"
           />
