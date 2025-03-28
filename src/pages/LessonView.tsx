@@ -52,11 +52,13 @@ const LessonView = () => {
         lessonId === 'basic-greetings' && 
         currentContent && 
         'content' in currentContent && 
-        currentContent.content.includes('B O N J O U R')) {
+        currentContent.content.includes('Bonjour')) {
       // Jouer l'audio après 1 seconde
       autoPlayTimerRef.current = setTimeout(() => {
         if (audioRef.current) {
-          audioRef.current.play().catch(console.error);
+          audioRef.current.play().catch(error => {
+            console.error("Erreur de lecture audio:", error);
+          });
           setIsPlaying(true);
         }
       }, 1000);
@@ -123,7 +125,7 @@ const LessonView = () => {
                 {/* Image d'illustration */}
                 <div className="w-full max-w-md mx-auto mb-8">
                   <img 
-                    src="/assets/Bonjour.png" 
+                    src="/assets/bonjou.png" 
                     alt="Illustration de salutation" 
                     className="w-full h-auto rounded-lg"
                   />
@@ -135,15 +137,46 @@ const LessonView = () => {
                 </h2>
 
                 {/* Audio caché */}
-                {currentContent.content.includes('Bonjour') && (
-                  <audio
-                    ref={audioRef}
-                    src="/audios/Bonjour.mp3"
-                    onEnded={() => setIsPlaying(false)}
-                    onPlay={() => setIsPlaying(true)}
-                    onPause={() => setIsPlaying(false)}
+                <audio
+                  ref={audioRef}
+                  src="/audios/Bonjour.mp3"
+                  preload="auto"
+                  onEnded={() => setIsPlaying(false)}
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                />
+              </div>
+            );
+          }
+          // Si c'est la leçon de salutation et le contenu contient "Au revoir"
+          if (categoryId === 'greetings' && 
+              lessonId === 'basic-greetings' && 
+              currentContent.content.includes('Au revoir')) {
+            return (
+              <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto">
+                {/* Image d'illustration */}
+                <div className="w-full max-w-md mx-auto mb-8">
+                  <img 
+                    src="/assets/aurevoir.png" 
+                    alt="Illustration d'au revoir" 
+                    className="w-full h-auto rounded-lg"
                   />
-                )}
+                </div>
+                
+                {/* Texte Au revoir en grand */}
+                <h2 className="text-4xl font-bold text-center text-[#1F41BB] mb-6">
+                  {currentContent.content}
+                </h2>
+
+                {/* Audio caché */}
+                <audio
+                  ref={audioRef}
+                  src="/audios/aurevoir.mp3"
+                  preload="auto"
+                  onEnded={() => setIsPlaying(false)}
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                />
               </div>
             );
           }

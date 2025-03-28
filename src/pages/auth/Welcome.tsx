@@ -9,7 +9,7 @@ const Welcome = () => {
     // Simulate a delay before showing the GetStarted page
     const timer = setTimeout(() => {
       navigate("/get-started");
-    }, 10000);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, [navigate]);

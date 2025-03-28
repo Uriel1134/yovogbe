@@ -37,7 +37,7 @@ const Flashcard: React.FC<FlashcardProps> = ({ flashcard, onMark }) => {
         {/* Front of card */}
         <div className={`absolute w-full h-full backface-hidden bg-white rounded-xl shadow-lg p-6 flex flex-col items-center justify-center ${flipped ? 'hidden' : ''}`}>
           <h2 className="text-2xl font-bold mb-4 text-app-primary">{flashcard.french}</h2>
-          <p className="text-gray-500 mb-6">Tap to see translation</p>
+          <p className="text-gray-500 mb-6">Taper pour voir la traduction</p>
           
           <Button 
             variant="outline"

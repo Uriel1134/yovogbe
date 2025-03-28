@@ -42,7 +42,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category }) => {
       <p className="text-sm text-gray-500 text-center">{category.description}</p>
       {category.lessons.length > 0 ? (
         <span className="badge bg-app-secondary bg-opacity-20 text-app-secondary mt-2">
-          {category.lessons.length} lessons
+          {category.lessons.length} Lesson
         </span>
       ) : (
         <span className="badge bg-gray-200 text-gray-500 mt-2">

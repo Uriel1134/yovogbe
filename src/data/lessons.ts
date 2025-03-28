@@ -57,8 +57,8 @@ export type UserProgress = {
 export const lessonCategories: LessonCategory[] = [
   {
     id: 'greetings',
-    title: 'Salutations',
-    description: 'Salutations de base et présentations',
+    title: '👋',
+    description: '',
     iconName: 'hand-wave',
     color: 'bg-app-primary',
     lessons: [
@@ -105,357 +105,99 @@ export const lessonCategories: LessonCategory[] = [
   },
   {
     id: 'self-intro',
-    title: 'Présentation personnelle',
-    description: 'Apprenez à vous présenter',
+    title: '👤',
+    description: '',
     iconName: 'user',
     color: 'bg-app-secondary',
     lessons: [
       {
-        id: 'name-age',
-        title: 'Nom et âge',
-        description: 'Présentez-vous en parlant de votre nom et de votre âge',
+        id: 'basic-intro',
+        title: 'Présentation de base',
+        description: 'Apprenez à vous présenter',
         level: 'beginner',
         content: [
           {
             type: 'text',
-            content: 'Je m\'appelle... ',
+            content: 'Je m\'appelle ',
             translation: {
-              fon: 'Nyikɔ ɖo...',
-              french: 'Je m\'appelle...'
-            }
-          },
-          {
-            type: 'text',
-            content: 'J\'ai ... ans ',
-            translation: {
-              fon: 'Un do ɔjɔ́ ...',
-              french: 'J\'ai ... ans'
+              fon: 'Ny tɔn nyi',
+              french: 'Je m\'appelle'
             }
           }
         ],
-        exercises: [
-          {
-            id: 'intro-quiz-1',
-            type: 'quiz',
-            question: 'Comment dit-on "Noukotché" en français ?',
-            options: ['Je suis', 'Je m\'appelle', 'J\'ai', 'J\'habite'],
-            correctAnswer: 'Je m\'appelle',
-            completed: false
-          }
-        ],
+        exercises: [],
         completed: false
       }
     ]
   },
   {
-    id: 'work',
-    title: 'Work Phrases',
-    description: 'Useful phrases for the workplace',
+    id: 'work-phrases',
+    title: '💼',
+    description: '',
     iconName: 'briefcase',
     color: 'bg-app-accent',
     lessons: [
       {
-        id: 'job-titles',
-        title: 'Job Titles',
-        description: 'Common job titles in French',
+        id: 'basic-work',
+        title: 'Phrases professionnelles',
+        description: 'Expressions utiles au travail',
         level: 'beginner',
-        content: [
-          {
-            type: 'text',
-            content: 'Je suis médecin (I am a doctor)',
-            translation: {
-              fon: 'Nye nyí dɔnɔ́ gb',
-              french: 'Je suis médecin'
-            }
-          },
-          {
-            type: 'text',
-            content: 'Je travaille comme... (I work as...)',
-            translation: {
-              fon: 'Un wà aza ...',
-              french: 'Je travaille comme...'
-            }
-          }
-        ],
-        exercises: [
-          {
-            id: 'work-quiz-1',
-            type: 'quiz',
-            question: 'Comment dit-on "Je travaille comme" en français ?',
-            options: ['Je suis', 'Je travaille comme', 'J\'ai un travail', 'Mon travail est'],
-            correctAnswer: 'Je travaille comme',
-            completed: false
-          }
-        ],
+        content: [],
+        exercises: [],
         completed: false
       }
     ]
   },
   {
-    id: 'daily',
-    title: 'Daily Routines',
-    description: 'parlez nous de votre routine quotidienne',
-    iconName: 'clock',
-    color: 'bg-purple-500',
+    id: 'daily-routines',
+    title: '🌅',
+    description: '',
+    iconName: 'sun',
+    color: 'bg-app-primary',
     lessons: [
       {
         id: 'morning-routine',
         title: 'Routine du matin',
-        description: 'Apprenez à parler de vos activités matinales',
+        description: 'Expressions pour la routine matinale',
         level: 'beginner',
-        content: [
-          {
-            type: 'text',
-            content: 'Je me réveille',
-            translation: {
-              fon: 'Nyi jɛ',
-              french: 'Je me réveille'
-            }
-          },
-          {
-            type: 'text',
-            content: 'Je me lève',
-            translation: {
-              fon: 'Nyi jɛ',
-              french: 'Je me lève'
-            }
-          },
-          {
-            type: 'text',
-            content: 'Je me douche',
-            translation: {
-              fon: 'Nyi sɔ',
-              french: 'Je me douche'
-            }
-          },
-          {
-            type: 'audio',
-            content: 'morning-routine.mp3'
-          }
-        ],
-        exercises: [
-          {
-            id: 'morning-quiz-1',
-            type: 'quiz',
-            question: 'Comment dit-on "Je me réveille" en fon ?',
-            options: ['Nyi jɛ', 'Nyi sɔ', 'Nyi dɔ', 'Nyi wɛ'],
-            correctAnswer: 'Nyi jɛ',
-            completed: false
-          }
-        ],
-        completed: false
-      },
-      {
-        id: 'evening-routine',
-        title: 'Routine du soir',
-        description: 'Apprenez à parler de vos activités du soir',
-        level: 'beginner',
-        content: [
-          {
-            type: 'text',
-            content: 'Je dîne',
-            translation: {
-              fon: 'Nyi dɔ',
-              french: 'Je dîne'
-            }
-          },
-          {
-            type: 'text',
-            content: 'Je vais dormir',
-            translation: {
-              fon: 'Nyi wɛ',
-              french: 'Je vais dormir'
-            }
-          },
-          {
-            type: 'audio',
-            content: 'evening-routine.mp3'
-          }
-        ],
-        exercises: [
-          {
-            id: 'evening-quiz-1',
-            type: 'quiz',
-            question: 'Comment dit-on "Je vais dormir" en fon ?',
-            options: ['Nyi wɛ', 'Nyi jɛ', 'Nyi sɔ', 'Nyi dɔ'],
-            correctAnswer: 'Nyi wɛ',
-            completed: false
-          }
-        ],
+        content: [],
+        exercises: [],
         completed: false
       }
     ]
   },
   {
-    id: 'food',
-    title: 'Food & Dining',
-    description: 'Order food and discuss cuisine',
+    id: 'food-dining',
+    title: '🍽️',
+    description: '',
     iconName: 'utensils',
-    color: 'bg-orange-500',
+    color: 'bg-app-warning',
     lessons: [
       {
-        id: 'basic-foods',
-        title: 'Aliments de base',
-        description: 'Apprenez les noms des aliments de base',
+        id: 'basic-food',
+        title: 'Nourriture de base',
+        description: 'Vocabulaire alimentaire',
         level: 'beginner',
-        content: [
-          {
-            type: 'text',
-            content: 'Le riz',
-            translation: {
-              fon: 'Wɛ',
-              french: 'Le riz'
-            }
-          },
-          {
-            type: 'text',
-            content: 'Le pain',
-            translation: {
-              fon: 'Buru',
-              french: 'Le pain'
-            }
-          },
-          {
-            type: 'audio',
-            content: 'basic-foods.mp3'
-          }
-        ],
-        exercises: [
-          {
-            id: 'food-quiz-1',
-            type: 'quiz',
-            question: 'Comment dit-on "Le riz" en fon ?',
-            options: ['Wɛ', 'Buru', 'Dɔ', 'Sɔ'],
-            correctAnswer: 'Wɛ',
-            completed: false
-          }
-        ],
-        completed: false
-      },
-      {
-        id: 'ordering-food',
-        title: 'Commander à manger',
-        description: 'Apprenez à commander de la nourriture',
-        level: 'intermediate',
-        content: [
-          {
-            type: 'text',
-            content: 'Je voudrais commander',
-            translation: {
-              fon: 'Nyi bɔ',
-              french: 'Je voudrais commander'
-            }
-          },
-          {
-            type: 'text',
-            content: 'Combien ça coûte ?',
-            translation: {
-              fon: 'Elɔ jɛ ?',
-              french: 'Combien ça coûte ?'
-            }
-          },
-          {
-            type: 'audio',
-            content: 'ordering-food.mp3'
-          }
-        ],
-        exercises: [
-          {
-            id: 'order-quiz-1',
-            type: 'quiz',
-            question: 'Comment dit-on "Combien ça coûte ?" en fon ?',
-            options: ['Elɔ jɛ ?', 'Nyi bɔ', 'Wɛ', 'Buru'],
-            correctAnswer: 'Elɔ jɛ ?',
-            completed: false
-          }
-        ],
+        content: [],
+        exercises: [],
         completed: false
       }
     ]
   },
   {
     id: 'shopping',
-    title: 'Shopping',
-    description: 'Vocabulaire pour les courses',
+    title: '🛍️',
+    description: '',
     iconName: 'shopping-bag',
-    color: 'bg-pink-500',
+    color: 'bg-app-danger',
     lessons: [
       {
-        id: 'shopping-basics',
-        title: 'Les bases du shopping',
-        description: 'Apprenez les expressions de base pour faire les courses',
+        id: 'basic-shopping',
+        title: 'Shopping de base',
+        description: 'Expressions pour faire les courses',
         level: 'beginner',
-        content: [
-          {
-            type: 'text',
-            content: 'Je vais faire les courses',
-            translation: {
-              fon: 'Nyi jɛ',
-              french: 'Je vais faire les courses'
-            }
-          },
-          {
-            type: 'text',
-            content: 'Où est le marché ?',
-            translation: {
-              fon: 'Afɔ ɖo ?',
-              french: 'Où est le marché ?'
-            }
-          },
-          {
-            type: 'audio',
-            content: 'shopping-basics.mp3'
-          }
-        ],
-        exercises: [
-          {
-            id: 'shopping-quiz-1',
-            type: 'quiz',
-            question: 'Comment dit-on "Où est le marché ?" en fon ?',
-            options: ['Afɔ ɖo ?', 'Nyi jɛ', 'Wɛ', 'Buru'],
-            correctAnswer: 'Afɔ ɖo ?',
-            completed: false
-          }
-        ],
-        completed: false
-      },
-      {
-        id: 'bargaining',
-        title: 'Marchander',
-        description: 'Apprenez à marchander les prix',
-        level: 'intermediate',
-        content: [
-          {
-            type: 'text',
-            content: 'C\'est trop cher',
-            translation: {
-              fon: 'E jɛ',
-              french: 'C\'est trop cher'
-            }
-          },
-          {
-            type: 'text',
-            content: 'Pouvez-vous baisser le prix ?',
-            translation: {
-              fon: 'A jɛ ?',
-              french: 'Pouvez-vous baisser le prix ?'
-            }
-          },
-          {
-            type: 'audio',
-            content: 'bargaining.mp3'
-          }
-        ],
-        exercises: [
-          {
-            id: 'bargain-quiz-1',
-            type: 'quiz',
-            question: 'Comment dit-on "C\'est trop cher" en fon ?',
-            options: ['E jɛ', 'A jɛ ?', 'Wɛ', 'Buru'],
-            correctAnswer: 'E jɛ',
-            completed: false
-          }
-        ],
+        content: [],
+        exercises: [],
         completed: false
       }
     ]

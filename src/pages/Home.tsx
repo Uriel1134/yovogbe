@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BottomNavigation from '@/components/BottomNavigation';
 import ProgressHeader from '@/components/ProgressHeader';
@@ -8,12 +8,37 @@ import { Play, BookOpen } from 'lucide-react';
 import { lessonCategories, initialUserProgress } from '@/data/lessons';
 
 const Home = () => {
-  const navigate = useNavigate(); // Référence à l'audio
-  const [audioPlayed, setAudioPlayed] = useState(false);
+  const navigate = useNavigate();
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  
+  useEffect(() => {
+    // Jouer l'audio d'accueil après un court délai
+    const timer = setTimeout(() => {
+      if (audioRef.current) {
+        audioRef.current.play().catch(error => {
+          console.error("Erreur de lecture audio:", error);
+        });
+      }
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+    };
+  }, []);
+
   return (
     <div className="pb-20">
+      {/* Audio d'accueil caché */}
+      <audio
+        ref={audioRef}
+        src="/audios/Acceuil.mp3"
+        preload="auto"
+      />
+
       <header className="p-5 pb-3">
         <h1 className="text-3xl font-bold text-app-primary">YOVO GBE</h1>
         <p className="text-gray-500">Apprenez le français à partir du fon</p>

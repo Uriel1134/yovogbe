@@ -1,5 +1,4 @@
-
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
@@ -9,19 +8,35 @@ interface AudioPlayerProps {
   label?: string;
   autoPlay?: boolean;
   className?: string;
+  onEnded?: () => void;
 }
 
 const AudioPlayer: React.FC<AudioPlayerProps> = ({ 
   audioFile, 
   label, 
   autoPlay = false,
-  className = ''
+  className = '',
+  onEnded
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [progress, setProgress] = useState(0);
   const [volume, setVolume] = useState(0.8);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  
+  useEffect(() => {
+    if (autoPlay && audioRef.current) {
+      const playAudio = async () => {
+        try {
+          await audioRef.current?.play();
+          setIsPlaying(true);
+        } catch (error) {
+          console.error("Auto-play failed:", error);
+        }
+      };
+      playAudio();
+    }
+  }, [autoPlay]);
   
   const togglePlay = () => {
     if (audioRef.current) {
@@ -64,6 +79,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
     if (audioRef.current) {
       audioRef.current.currentTime = 0;
     }
+    onEnded?.();
   };
   
   return (
@@ -103,13 +119,13 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
         <Button
           variant="ghost"
           size="icon"
-          className="text-gray-500"
+          className="text-app-primary"
           onClick={toggleMute}
         >
           {isMuted ? (
-            <VolumeX className="h-4 w-4" />
+            <VolumeX className="h-6 w-6" />
           ) : (
-            <Volume2 className="h-4 w-4" />
+            <Volume2 className="h-6 w-6" />
           )}
         </Button>
         
@@ -128,12 +144,10 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
       <audio
         ref={audioRef}
         src={audioFile}
-        autoPlay={autoPlay}
         onTimeUpdate={handleTimeUpdate}
         onEnded={handleEnded}
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
-        className="hidden"
       />
     </div>
   );
