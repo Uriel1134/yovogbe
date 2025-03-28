@@ -114,6 +114,40 @@ const LessonView = () => {
     } else {
       switch (currentContent.type) {
         case 'text':
+          // Si c'est la leçon de salutation et le contenu contient "Bonjour"
+          if (categoryId === 'greetings' && 
+              lessonId === 'basic-greetings' && 
+              currentContent.content.includes('Bonjour')) {
+            return (
+              <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto">
+                {/* Image d'illustration */}
+                <div className="w-full max-w-md mx-auto mb-8">
+                  <img 
+                    src="/assets/Bonjour.png" 
+                    alt="Illustration de salutation" 
+                    className="w-full h-auto rounded-lg"
+                  />
+                </div>
+                
+                {/* Texte Bonjour en grand */}
+                <h2 className="text-4xl font-bold text-center text-[#1F41BB] mb-6">
+                  {currentContent.content}
+                </h2>
+
+                {/* Audio caché */}
+                {currentContent.content.includes('Bonjour') && (
+                  <audio
+                    ref={audioRef}
+                    src="/audios/Bonjour.mp3"
+                    onEnded={() => setIsPlaying(false)}
+                    onPlay={() => setIsPlaying(true)}
+                    onPause={() => setIsPlaying(false)}
+                  />
+                )}
+              </div>
+            );
+          }
+          // Pour les autres contenus textuels
           return (
             <div className="bg-white rounded-xl shadow p-6 max-w-lg mx-auto">
               <h3 className="text-xl font-medium mb-4">{currentContent.content}</h3>
@@ -128,15 +162,6 @@ const LessonView = () => {
                     <p>{currentContent.translation.fon}</p>
                   </div>
                 </div>
-              )}
-              {currentContent.content.includes('Bonjour') && (
-                <audio
-                  ref={audioRef}
-                  src="/audios/Bonjour.mp3"
-                  onEnded={() => setIsPlaying(false)}
-                  onPlay={() => setIsPlaying(true)}
-                  onPause={() => setIsPlaying(false)}
-                />
               )}
             </div>
           );
