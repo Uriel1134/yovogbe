@@ -108,7 +108,7 @@ const Profile = () => {
               className="w-full justify-start text-red-500 hover:text-red-700 hover:bg-red-50"
             >
               <LogOut className="h-4 w-4 mr-2" />
-              Logout
+              Déconnexion
             </Button>
           </div>
         </div>
